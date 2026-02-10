@@ -67,6 +67,22 @@ const titles = [
 ];
 
 const rotator = document.getElementById('titleRotator');
+const slogans = [
+  'Disponible pour un stage — 06 avril au 01 mai 2026',
+  'Créer des interfaces utiles, belles et rapides',
+  'Apprendre vite, livrer propre, itérer en équipe'
+];
+
+const sloganEl = document.getElementById('sloganRotator');
+let sloganIndex = 0;
+function rotateSlogan() {
+  if (!sloganEl) return;
+  sloganEl.innerHTML = `<span class="fade">${slogans[sloganIndex]}</span>`;
+  sloganIndex = (sloganIndex + 1) % slogans.length;
+}
+rotateSlogan();
+setInterval(rotateSlogan, 3200);
+
 let index = 0;
 function rotateTitle() {
   rotator.textContent = titles[index];
