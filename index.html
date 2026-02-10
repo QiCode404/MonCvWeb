@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swan Narros — Développeur Web & Web Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="grain"></div>
+
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">SN</div>
+      <div class="nav-links">
+        <a href="#profil">Profil</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="cta" href="#contact">Disponible en stage</a>
+    </nav>
+
+    <section class="hero-grid">
+      <div class="hero-left">
+        <p class="eyebrow">Développeur Web & Web Mobile</p>
+        <h1>
+          NARROS <span class="glitch" data-text="Swan">Swan</span>
+          <span class="title-stack">
+            <span class="title-rotator" id="titleRotator"></span>
+          </span>
+        </h1>
+        <p class="lead" id="profil">
+          Actuellement en formation D2WM à l’ENI École Informatique, je me forme au développement web avec une approche très pratique. Passionné par l’apprentissage et la création, je recherche un stage du <strong>06 avril au 01 mai 2026</strong> pour monter en compétence, participer à de vrais projets et m’investir pleinement dans une équipe.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projets">Voir mes projets</a>
+          <a class="button ghost" href="#contact">Me contacter</a>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Basé entre Lausanne & Aix-les-Bains</span>
+          <span class="pill">Créatif & orienté produit</span>
+          <span class="pill">Approche collaborative</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="portrait-card" id="heroCard">
+          <div class="portrait">
+            <img src="src/monPortrait.jpeg" alt="Portrait de Swan Narros" />
+          </div>
+          <div class="portrait-info">
+            <p>Développeur web junior</p>
+            <p class="accent">Recherche de stage avril 2026</p>
+          </div>
+          <div class="pulse"></div>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-value">+10</span>
+            <span class="metric-label">Technos explorées</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">2026</span>
+            <span class="metric-label">Projets ENI</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">2</span>
+            <span class="metric-label">Pays d’expérience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section reveal" id="competences">
+      <div class="section-head">
+        <h2>Compétences clés</h2>
+        <p>Des bases solides et une envie de monter en puissance rapidement sur des projets concrets.</p>
+      </div>
+      <div class="skills">
+        <div class="skills-panel">
+          <div class="chips" id="skillChips"></div>
+          <div class="skills-list" id="skillsList"></div>
+        </div>
+        <div class="skills-aside">
+          <h3>Focus dynamique</h3>
+          <p>Un stack web polyvalent, avec un goût pour les interfaces propres, la performance et les tests.</p>
+          <ul class="mini-list">
+            <li>HTML, CSS, JavaScript</li>
+            <li>Symfony, Angular, Express.js</li>
+            <li>MySQL, MongoDB</li>
+            <li>Git, JetBrains, VS Code</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="projets">
+      <div class="section-head">
+        <h2>Expériences & Projets</h2>
+        <p>Des projets académiques et associatifs, avec une approche concrète et orientée utilisateur.</p>
+      </div>
+      <div class="cards" id="projectsGrid"></div>
+    </section>
+
+    <section class="section reveal" id="parcours">
+      <div class="section-head">
+        <h2>Diplômes & Formations</h2>
+        <p>Un parcours en construction, avec une base technique et une logique produit.</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section reveal" id="profil-plus">
+      <div class="section-head">
+        <h2>Langues, passions & atouts</h2>
+        <p>Un profil humain, curieux et prêt à contribuer en équipe.</p>
+      </div>
+      <div class="split-grid">
+        <div class="card">
+          <h3>Langues</h3>
+          <ul>
+            <li>Français — langue maternelle</li>
+            <li>Anglais — C1</li>
+            <li>Chinois — HSK1</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Passions</h3>
+          <ul>
+            <li>Piano</li>
+            <li>Montagne</li>
+            <li>Échecs</li>
+            <li>Lecture</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Atouts</h3>
+          <ul>
+            <li>Curieux</li>
+            <li>Motivé</li>
+            <li>Esprit d’équipe</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="contact-card">
+      <div>
+        <h2>Contact</h2>
+        <p>Prêt à rejoindre une équipe ambitieuse pour un stage en avril 2026.</p>
+        <div class="contact-lines">
+          <p><strong>Téléphone</strong> +33 6 23 30 01 13 · +41 76 727 1624</p>
+          <p><strong>Email</strong> swan.narros@gmail.com</p>
+          <p><strong>LinkedIn</strong> linkedin.com/in/swan-narros</p>
+          <p><strong>Localisation</strong> 1004 Lausanne, Suisse · 73100 Aix-les-Bains, France</p>
+        </div>
+      </div>
+      <a class="button primary" href="mailto:swan.narros@gmail.com">Écrire un message</a>
+    </div>
+    <p class="footer-note">© 2026 Swan Narros — Portfolio dynamique</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
