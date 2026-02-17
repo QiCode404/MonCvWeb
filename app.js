@@ -1,3 +1,4 @@
+// Données de compétences
 const skillSets = {
   Langages: ['PHP', 'XML', 'SQL', 'HTML', 'CSS', 'JavaScript'],
   Frameworks: ['Symfony', 'Bootstrap', 'jQuery', 'Angular', 'Express.js'],
@@ -5,7 +6,7 @@ const skillSets = {
   Donnees: ['SQL Server', 'MySQL', 'MongoDB', 'Doctrine (ORM)'],
   Methodes: ['Modélisation des données', 'Agile (Scrum)', 'UML']
 };
-
+// Données de projets et timeline
 const projects = [
   {
     title: 'Portfolio dynamique (ce site)',
@@ -45,6 +46,7 @@ const projects = [
   }
 ];
 
+// Données de timeline
 const timeline = [
   {
     title: 'ENI — École Informatique',
@@ -60,12 +62,14 @@ const timeline = [
   }
 ];
 
+// Titres à faire défiler
 const titles = [
   'Interfaces élégantes',
   'Expériences immersives',
   'Code propre & agile'
 ];
 
+// Rotation des titres et slogans
 const rotator = document.getElementById('titleRotator');
 const slogans = [
   'Disponible pour un stage — 06 avril au 01 mai 2026',
@@ -73,6 +77,7 @@ const slogans = [
   'Apprendre vite, livrer propre, itérer en équipe'
 ];
 
+// Rotation des slogans
 const sloganEl = document.getElementById('sloganRotator');
 let sloganIndex = 0;
 function rotateSlogan() {
@@ -104,6 +109,7 @@ function renderSkills(category) {
   });
 }
 
+// Création des chips de catégories
 Object.keys(skillSets).forEach((key, i) => {
   const chip = document.createElement('button');
   chip.className = 'chip' + (i === 0 ? ' active' : '');
@@ -133,6 +139,7 @@ projects.forEach((project) => {
   projectsGrid.appendChild(card);
 });
 
+// Création de la timeline
 const timelineContainer = document.getElementById('timeline');
 timeline.forEach((item) => {
   const block = document.createElement('div');
@@ -164,6 +171,7 @@ document.querySelectorAll('.card').forEach((card, i) => {
   observer.observe(card);
 });
 
+// Parallax léger sur le background
 const bgMesh = document.querySelector('.bg-mesh');
 window.addEventListener('scroll', () => {
   if (!bgMesh) return;
@@ -171,6 +179,7 @@ window.addEventListener('scroll', () => {
   bgMesh.style.transform = `translateY(${offset}px) scale(1.04)`;
 });
 
+// Effet 3D sur la carte du hero & rotation légère du background
 const heroCard = document.getElementById('heroCard');
 if (heroCard) {
   const maxTilt = 10;
