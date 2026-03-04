@@ -1,105 +1,100 @@
-// Données de compétences
 const skillSets = {
   Langages: ['PHP', 'XML', 'SQL', 'HTML', 'CSS', 'JavaScript'],
   Frameworks: ['Symfony', 'Bootstrap', 'jQuery', 'Angular', 'Express.js'],
   Outils: ['Eclipse', 'Visual Studio Code', 'Suite JetBrains', 'Git'],
   Donnees: ['SQL Server', 'MySQL', 'MongoDB', 'Doctrine (ORM)'],
-  Methodes: ['Modélisation des données', 'Agile (Scrum)', 'UML']
+  Methodes: ['Modelisation des donnees', 'Agile (Scrum)', 'UML']
 };
-// Données de projets et timeline
+
 const projects = [
   {
     title: 'Portfolio dynamique (ce site)',
     subtitle: 'Projet personnel · 2026',
-    description: 'Conception d’un portfolio immersif avec animations, parallax léger et interactions JavaScript.',
+    description: 'Conception d’un portfolio clair et structure avec interactions JavaScript utiles.',
     tags: ['HTML', 'CSS', 'JavaScript', 'UI/UX']
   },
   {
     title: 'ARVIPA — Marque outdoor',
-    subtitle: 'Annecy · Lancement à venir',
-    description: 'Création du site de la marque outdoor ARVIPA (arvipa.com) pour un futur lancement produit.',
+    subtitle: 'Annecy · Lancement a venir',
+    description: 'Creation du site de la marque outdoor ARVIPA (arvipa.com) pour un futur lancement produit.',
     tags: ['Branding', 'Web', 'Outdoor']
   },
   {
     title: 'Trombinoscope de promotion',
-    subtitle: 'ENI École Informatique · 2026',
+    subtitle: 'ENI Ecole Informatique · 2026',
     description: 'Conception d’un trombinoscope dynamique avec HTML, CSS et JavaScript.',
     tags: ['HTML', 'CSS', 'JavaScript']
   },
   {
-    title: 'Plateforme d’organisation d’événements',
-    subtitle: 'ENI École Informatique · 2026',
-    description: 'Développement d’un site en PHP & MySQL avec définition de tests et outils de validation.',
+    title: 'Plateforme d’organisation d’evenements',
+    subtitle: 'ENI Ecole Informatique · 2026',
+    description: 'Developpement d’un site en PHP & MySQL avec definition de tests et outils de validation.',
     tags: ['PHP', 'MySQL', 'Tests']
   },
   {
     title: 'BIGNEDELE Atelier',
     subtitle: 'Association · Depuis 2024',
-    description: 'Création et maintenance d’un site boutique via CMS pour une association sportive de broderie.',
+    description: 'Creation et maintenance d’un site boutique via CMS pour une association sportive de broderie.',
     tags: ['CMS', 'Association', 'Maintenance']
   },
   {
-    title: 'Hôtellerie & Restauration',
-    subtitle: 'Suisse · 2018 → 2025',
-    description: 'Expériences en F&B, Front Office et cuisine, notamment chez Marriott Hotel.',
+    title: 'Hotellerie & Restauration',
+    subtitle: 'Suisse · 2018 -> 2025',
+    description: 'Experiences en F&B, Front Office et cuisine, notamment chez Marriott Hotel.',
     tags: ['Service', 'Organisation', 'Relation client']
   }
 ];
 
-// Données de timeline
 const timeline = [
   {
-    title: 'ENI — École Informatique',
+    title: 'ENI — Ecole Informatique',
     period: '2025 · 2026',
-    detail: 'Formation Développeur Web & Web Mobile, titre niveau 5 homologué par l’État (Bac+2).',
+    detail: 'Formation Developpeur Web & Web Mobile, titre niveau 5 homologue par l’Etat (Bac+2).',
     bullets: 'Algorithmie, Java (POO), HTML/CSS, JavaScript, SQL, Git/GitHub, Java/Spring Boot, Symfony, React, API REST.'
   },
   {
     title: 'Udemy — Le Blog du Hacker',
     period: 'Auto-formation',
-    detail: 'Introduction à la programmation et aux fondamentaux du web et des réseaux.',
-    bullets: 'Bases solides pour démarrer en développement, système et algorithmique.'
+    detail: 'Introduction a la programmation et aux fondamentaux du web et des reseaux.',
+    bullets: 'Bases solides pour demarrer en developpement, systeme et algorithmique.'
   }
 ];
 
-// Titres à faire défiler
-const titles = [
-  'Interfaces élégantes',
-  'Expériences immersives',
-  'Code propre & agile'
-];
-
-// Rotation des titres et slogans
-const rotator = document.getElementById('titleRotator');
+const titles = ['Developpement web', 'Interfaces propres', 'Code structure'];
 const slogans = [
   'Disponible pour un stage — 06 avril au 01 mai 2026',
-  'Créer des interfaces utiles, belles et rapides',
-  'Apprendre vite, livrer propre, itérer en équipe'
+  'Construire des interfaces utiles et lisibles',
+  'Approche pratique, rigoureuse et collaborative'
 ];
 
-// Rotation des slogans
+const rotator = document.getElementById('titleRotator');
 const sloganEl = document.getElementById('sloganRotator');
+
+let titleIndex = 0;
 let sloganIndex = 0;
+
+function rotateTitle() {
+  if (!rotator) return;
+  rotator.textContent = titles[titleIndex];
+  titleIndex = (titleIndex + 1) % titles.length;
+}
+
 function rotateSlogan() {
   if (!sloganEl) return;
   sloganEl.innerHTML = `<span class="fade">${slogans[sloganIndex]}</span>`;
   sloganIndex = (sloganIndex + 1) % slogans.length;
 }
-rotateSlogan();
-setInterval(rotateSlogan, 3200);
 
-let index = 0;
-function rotateTitle() {
-  rotator.textContent = titles[index];
-  index = (index + 1) % titles.length;
-}
 rotateTitle();
-setInterval(rotateTitle, 2600);
+rotateSlogan();
+setInterval(rotateTitle, 3200);
+setInterval(rotateSlogan, 3800);
 
 const chipContainer = document.getElementById('skillChips');
 const listContainer = document.getElementById('skillsList');
 
 function renderSkills(category) {
+  if (!listContainer) return;
   listContainer.innerHTML = '';
   skillSets[category].forEach((item) => {
     const pill = document.createElement('span');
@@ -109,10 +104,10 @@ function renderSkills(category) {
   });
 }
 
-// Création des chips de catégories
 Object.keys(skillSets).forEach((key, i) => {
+  if (!chipContainer) return;
   const chip = document.createElement('button');
-  chip.className = 'chip' + (i === 0 ? ' active' : '');
+  chip.className = `chip${i === 0 ? ' active' : ''}`;
   chip.textContent = key;
   chip.addEventListener('click', () => {
     document.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
@@ -126,8 +121,9 @@ renderSkills(Object.keys(skillSets)[0]);
 
 const projectsGrid = document.getElementById('projectsGrid');
 projects.forEach((project) => {
+  if (!projectsGrid) return;
   const card = document.createElement('article');
-  card.className = 'card';
+  card.className = 'card reveal';
   card.innerHTML = `
     <h3>${project.title}</h3>
     <p><strong>${project.subtitle}</strong></p>
@@ -139,11 +135,11 @@ projects.forEach((project) => {
   projectsGrid.appendChild(card);
 });
 
-// Création de la timeline
 const timelineContainer = document.getElementById('timeline');
 timeline.forEach((item) => {
+  if (!timelineContainer) return;
   const block = document.createElement('div');
-  block.className = 'timeline-item';
+  block.className = 'timeline-item reveal';
   block.innerHTML = `
     <h3>${item.title}</h3>
     <p><strong>${item.period}</strong></p>
@@ -156,42 +152,13 @@ timeline.forEach((item) => {
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
     });
   },
-  { threshold: 0.15 }
+  { threshold: 0.12 }
 );
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-document.querySelectorAll('.card').forEach((card, i) => {
-  card.style.transitionDelay = `${i * 0.08}s`;
-  observer.observe(card);
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = `${Math.min(i * 0.03, 0.18)}s`;
+  observer.observe(el);
 });
-
-// Parallax léger sur le background
-const bgMesh = document.querySelector('.bg-mesh');
-window.addEventListener('scroll', () => {
-  if (!bgMesh) return;
-  const offset = window.scrollY * 0.04;
-  bgMesh.style.transform = `translateY(${offset}px) scale(1.04)`;
-});
-
-// Effet 3D sur la carte du hero & rotation légère du background
-const heroCard = document.getElementById('heroCard');
-if (heroCard) {
-  const maxTilt = 10;
-  heroCard.addEventListener('mousemove', (event) => {
-    const rect = heroCard.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const rotateX = ((y / rect.height) - 0.5) * -maxTilt;
-    const rotateY = ((x / rect.width) - 0.5) * maxTilt;
-    heroCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-  heroCard.addEventListener('mouseleave', () => {
-    heroCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
-  });
-}
